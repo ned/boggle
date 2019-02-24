@@ -23,6 +23,7 @@ body {
 .board > * {
 	display: flex;
 	font-size: 24pt;
+	font-family: 'Kanit', sans-serif;
 	font-weight: 900;
 	color: #444;
 	justify-content: center;
