@@ -34,8 +34,7 @@ window.onload = () => {
 	
 	const letters = [];
 	for (let i = 0; i < 16; i++) {
-		const resolution = 10;
-		letter = randomElement(Math.floor(distribution * 10));
+		letter = randomElement(distribution);
 		rotation = randomElement([0, 90, 180, 270]);
 		createLetter(root, letter, rotation);
 	}
@@ -49,7 +48,9 @@ function randomElement(list) {
 function makeDistribution(weights) {
 	const distribution = []
 	for (const [key, weight] of Object.entries(weights)) {
-		for (let i = 0; i < weight; i++) {
+		const resolution = 10;
+		const frequency = Math.floor(weight * resolution);
+		for (let i = 0; i < frequency; i++) {
 			distribution.push(key);
 		}
 	}
