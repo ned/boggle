@@ -40,7 +40,7 @@ window.onload = () => {
 	console.log(letters);
 
 	for (let letter of letters) {
-		createLetter(root, letter.toUpperCase())
+		createLetter(root, letter);
 	}
 }
 
