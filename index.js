@@ -34,8 +34,9 @@ window.onload = () => {
 	
 	const letters = [];
 	for (let i = 0; i < 16; i++) {
-		letter = randomElement(distribution);
-		rotation = randomElement([0, 90, 180, 270]);
+		const resolution = 10;
+		letter = randomElement(Math.floor(distribution * 10));
+		Mathrotation = randomElement([0, 90, 180, 270]);
 		createLetter(root, letter, rotation);
 	}
 }
