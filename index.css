@@ -1,0 +1,26 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.board {
+	/* margin: 0 auto; */
+	display: inline-grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 10px;
+	/* justify-items: center; */
+	/* justify-content: space-around; */
+}
+
+.board > * {
+	border: 1px solid;
+	text-align: center;
+	padding: 1em;
+}
