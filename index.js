@@ -55,11 +55,18 @@ function makeDistribution(weights) {
 	return distribution;
 }
 
-function createLetter(root, text, rotation) {
+function createLetter(root, letter, rotation) {
 	const node = document.createElement("div");
 	const textNode = document.createElement("span");
-	textNode.textContent = text;
+
+	textNode.textContent = letter;
 	textNode.style.transform = `rotate(${rotation}deg)`;
+
+	const shouldUnderline = ['W', 'M', 'Z']
+	if (shouldUnderline.includes(letter)) {
+		textNode.classList.add('underline');
+	}
+
 	node.appendChild(textNode);
 	root.appendChild(node);
 }

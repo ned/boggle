@@ -35,3 +35,7 @@ body {
 	width: 1em;
 	height: 1em;
 }
+
+.underline {
+	text-decoration: underline;
+}
