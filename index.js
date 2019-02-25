@@ -30,40 +30,18 @@ window.onload = () => {
 		, 'Z': 0.074
 		};
 	
+	const distribution = makeDistribution(weights);
 	
 	const letters = [];
 	for (let i = 0; i < 16; i++) {
-		const distribution = makeDistribution(weights);
 		letter = randomElement(distribution);
-		weights[letter] = weights[letter] / 2; // make it less likely to draw the same letter again
-		letters.push(letter);
-	}
-
-	const shuffledLetters = shuffled(letters);
-	for (let letter of shuffledLetters) {
 		rotation = randomElement([0, 90, 180, 270]);
 		createLetter(root, letter, rotation);
 	}
 }
 
-// returns a random integer in the range [lower, upper)
-function randomInt(lower, upper) {
-	return Math.floor(Math.random() * (upper - lower)) + lower;
-}
-
-// returns a shuffled copy of the original list using the Fisher-Yates algorithm
-function shuffled(list) {
-	let xs = [];
-	for (let i = list.length; i > 0; i--) {
-		const index = randomInt(0, i);
-		const x = list[index];
-		xs.push(x);
-	}
-	return xs;
-}
-
 function randomElement(list) {
-	const index = randomInt(0, list.length);
+	const index = Math.floor(Math.random() * list.length);
 	return list[index];
 }
 
