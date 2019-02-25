@@ -36,6 +36,8 @@ window.onload = () => {
 		const distribution = makeDistribution(weights);
 		letter = randomElement(distribution);
 		weights[letter] = weights[letter] / 2; // make it less likely to draw the same letter again
+		console.debug("weights", weights);
+		console.debug("sum(weights)", sum(Object.values(weights)));
 		letters.push(letter);
 	}
 
@@ -44,6 +46,10 @@ window.onload = () => {
 		rotation = randomElement([0, 90, 180, 270]);
 		createLetter(root, letter, rotation);
 	}
+}
+
+function sum(list) {
+	return list.reduce((acc, x) => acc + x);
 }
 
 // returns a random integer in the range [lower, upper)
