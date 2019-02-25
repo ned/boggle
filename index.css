@@ -24,16 +24,16 @@ body {
 
 .board > * {
 	display: flex;
+	background-color: #fffbeb;
 	font-size: 10vmin;
 	font-family: 'Kanit', sans-serif;
 	font-weight: 900;
-	color: #444;
+	color: #505050;
 	justify-content: center;
 	align-items: center;
 	/* border: 1px solid; */
-	box-shadow: 0.2vmin 0.2vmin 0.4vmin #9b280d;
 	border-radius: 15%;
-	background-color: #fffbeb;
+	box-shadow: 0.2vmin 0.2vmin 0.4vmin #9b280d;
 }
 
 .underline {
