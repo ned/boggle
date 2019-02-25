@@ -31,7 +31,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	/* border: 1px solid; */
-	box-shadow: 0.2vmin 0.2vmin 0.4vmin #9b280d
+	box-shadow: 0.2vmin 0.2vmin 0.4vmin #9b280d;
 	border-radius: 15%;
 	background-color: white;
 }
