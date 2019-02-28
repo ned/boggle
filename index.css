@@ -5,6 +5,9 @@ html, body {
 }
 
 body {
+	font-size: 10vmin;
+	font-family: 'Kanit', sans-serif;
+	font-weight: 900;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -20,6 +23,8 @@ body {
 	/* justify-content: space-around; */
 	width: 80vmin;
 	height: 80vmin;
+	margin-left: 8vmin;
+	margin-right: 0;
 }
 
 .board > * {
@@ -34,6 +39,19 @@ body {
 	/* border: 1px solid; */
 	border-radius: 15%;
 	box-shadow: 0 0.5vmin 0 #bc4415;
+}
+
+.greytile {
+	background-color: grey;
+	transition: 1s;
+}
+
+.timer {
+	position: absolute;
+	margin-left: 40vw;
+	transform: rotate(270deg);
+	color: #fffbeb;
+	vertical-align: center;
 }
 
 .underline {
