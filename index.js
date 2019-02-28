@@ -39,16 +39,24 @@ window.onload = () => {
 
 	for (const [key, weight] of Object.entries(weights)) {
 		weights[key] = Math.cbrt(weights[key]);
-		if (vowels.includes(key)) {
-			weights[key] = Math.sqrt(weights[key]);
+		if (!vowels.includes(key)) {
+			weights[key] = weights[key] / 2;
 		}
 	}
+	console.log(weights);
 	
 	const letters = [];
 	for (let i = 0; i < 16; i++) {
 		distribution = makeDistribution(weights);
 		letter = randomElement(distribution);
-		weights[letter] = Math.pow(weights[letter],2);
+		weights[letter] = weights[letter] * 0.6;
+		if (vowels.includes(letter)) {
+			for (const [key, weight] of Object.entries(weights)) {
+				if (vowels.includes(key)) {
+					weights[key] = weights[key] * 0.8;
+				}
+			}
+		}
 		rotation = randomElement([0, 90, 180, 270]);
 		createLetter(root, letter, rotation, i);
 	}
@@ -90,7 +98,7 @@ function randomElement(list) {
 function makeDistribution(weights) {
 	const distribution = []
 	for (const [key, weight] of Object.entries(weights)) {
-		const resolution = 10000;
+		const resolution = 10;
 		const frequency = Math.floor(weight * resolution);
 		for (let i = 0; i < frequency; i++) {
 			distribution.push(key);
