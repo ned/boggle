@@ -17,7 +17,7 @@ body {
 .board {
 	/* margin: 0 auto; */
 	display: inline-grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 1vmin;
 	/* justify-items: center; */
 	/* justify-content: space-around; */
