@@ -36,6 +36,9 @@ const weights = {
 window.onload = () => {
 	setTimer(time);
 	const root = document.getElementById("board");
+
+        root.requestFullscreen();
+
 	const vowels = ["A", "E", "I", "O", "U"];
 
 
