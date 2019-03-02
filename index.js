@@ -1,7 +1,7 @@
 let time = 180;
 const timer = setInterval(tickTimer, 1000);
 var endgame = new Audio('endgame.mp3');
-const tilecount = 25;
+const tilecount = 16;
 const columncount = Math.sqrt(tilecount);
 
 const weights = {
