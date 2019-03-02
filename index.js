@@ -1,6 +1,8 @@
 let time = 180;
 const timer = setInterval(tickTimer, 1000);
 var endgame = new Audio('endgame.mp3');
+const tilecount = 25;
+const columncount = Math.sqrt(tilecount);
 
 const weights = {
 		  'A': 0.08167
@@ -46,7 +48,7 @@ window.onload = () => {
 	console.log(weights);
 	
 	const letters = [];
-	for (let i = 0; i < 16; i++) {
+	for (let i = 0; i < tilecount; i++) {
 		distribution = makeDistribution(weights);
 		letter = randomElement(distribution);
 		weights[letter] = weights[letter] * 0.6;
@@ -61,22 +63,22 @@ window.onload = () => {
 		createLetter(root, letter, rotation, i);
 	}
 
-	for (let i = 0; i < 16; i++) {
+	for (let i = 0; i < tilecount; i++) {
 		tile = document.getElementById(`letter ${i}`);
 		letter = tile.textContent;
 		if (letter == "Q") {
-			qcolumn = i % 4;
-			qrow = Math.floor(i / 4);
+			qcolumn = i % columncount;
+			qrow = Math.floor(i / columncount);
 			console.log(qcolumn);
 			console.log(qrow);
 			console.log(letter);
 			validtiles = [];
-			for (let column = 0; column < 4; column++) {
-				for (let row = 0; row < 4; row++) {
+			for (let column = 0; column < columncount; column++) {
+				for (let row = 0; row < columncount; row++) {
 					columndiff = Math.abs(column - qcolumn)
 					rowdiff = Math.abs(row - qrow)
 					if (columndiff <= 1 && rowdiff <= 1 && columndiff + rowdiff > 0) {
-						validid = row * 4 + column;
+						validid = row * columncount + column;
 						validtiles.push(validid);
 					}
 
@@ -144,7 +146,7 @@ function tickTimer() {
 	time = time - 1;
 	setTimer(time);
 	if (time <= 0) {
-		for (let i = 0; i < 16; i++) {
+		for (let i = 0; i < tilecount; i++) {
 			const tileNode = document.getElementById(`tile ${i}`);
 			tileNode.classList.add('greytile');
 		}
